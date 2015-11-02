@@ -1,0 +1,60 @@
+buildscript {
+  repositories {
+    jcenter()
+    maven {
+      url SNAPSHOT_REPOSITORY_URL
+    }
+  }
+
+  dependencies {
+    classpath rootProject.ext.androidPlugin
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.7'
+    classpath 'com.github.xfumihiro.data-inspector:data-inspector-plugin:0.1.0'
+  }
+}
+
+repositories {
+  jcenter()
+  maven {
+    url SNAPSHOT_REPOSITORY_URL
+  }
+}
+
+configurations.all {
+  resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'data-inspector'
+
+android {
+  compileSdkVersion 23
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+
+  defaultConfig {
+    applicationId "com.github.xfumihiro.data_inspector.sample"
+    minSdkVersion 14
+    targetSdkVersion 23
+    versionCode 1
+    versionName "1.0"
+  }
+}
+
+
+
+dependencies {
+  // Android dependencies
+  compile rootProject.ext.appcompatV72310
+
+  // Third-party dependencies
+  compile rootProject.ext.rxPreference
+  compile rootProject.ext.autoParcel
+  apt rootProject.ext.autoParcelProcessor
+}
+

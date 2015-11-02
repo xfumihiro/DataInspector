@@ -1,0 +1,18 @@
+<resources>
+  <string name="app_name">DataInspector</string>
+  <string name="view_tag">DataInspector</string>
+
+  <!-- Preference Menu -->
+  <string name="menu_preference_edit_preference">Edit Preference</string>
+
+  <!-- Database Menu -->
+  <string name="menu_database_edit_database">Edit Database</string>
+
+  <!-- Storage Menu -->
+  <string name="menu_storage_storage_usage">Storage Usage</string>
+
+  <!-- Settings Menu -->
+  <string name="menu_settings_log_preference_events">Log Preference Events</string>
+  <string name="menu_settings_log_storage_events">Log Storage Events</string>
+
+</resources>

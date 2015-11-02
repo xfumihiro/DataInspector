@@ -1,0 +1,62 @@
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+}
+
+android.libraryVariants.all { variant ->
+  JavaCompile javaCompile = variant.javaCompile
+  javaCompile.doLast {
+    String[] args = ["-showWeaveInfo",
+                     "-1.5",
+                     "-inpath", javaCompile.destinationDir.toString(),
+                     "-aspectpath", javaCompile.classpath.asPath,
+                     "-d", javaCompile.destinationDir.toString(),
+                     "-classpath", javaCompile.classpath.asPath,
+                     "-bootclasspath", android.bootClasspath.join(File.pathSeparator)]
+
+    MessageHandler handler = new MessageHandler(true);
+    new Main().run(args, handler)
+
+    def log = project.logger
+    for (IMessage message : handler.getMessages(null, true)) {
+      switch (message.getKind()) {
+        case IMessage.ABORT:
+        case IMessage.ERROR:
+        case IMessage.FAIL:
+          log.error message.message, message.thrown
+          break;
+        case IMessage.WARNING:
+        case IMessage.INFO:
+          log.info message.message, message.thrown
+          break;
+        case IMessage.DEBUG:
+          log.debug message.message, message.thrown
+          break;
+      }
+    }
+  }
+}
+
+dependencies {
+  compile 'com.github.xfumihiro.data-inspector:data-inspector-runtime:0.1.0'
+
+  // Android dependencies
+  compile rootProject.ext.appcompatV72103
+
+  // AspectJ dependencies
+  compile rootProject.ext.aspectjRuntime
+}
+
+apply from: 'publish.gradle'

@@ -1,0 +1,5 @@
+include ':sample'
+include ':data-inspector-plugin'
+include ':data-inspector-runtime'
+include ':data-inspector-aspect'
+include ':data-inspector-aspect-v23'
