@@ -9,7 +9,7 @@ buildscript {
   dependencies {
     classpath rootProject.ext.androidPlugin
     classpath 'com.neenbedankt.gradle.plugins:android-apt:1.7'
-    classpath 'com.github.xfumihiro.data-inspector:data-inspector-plugin:0.1.0'
+    classpath 'com.github.xfumihiro.data-inspector:data-inspector-plugin:0.1.1-SNAPSHOT'
   }
 }
 
@@ -45,8 +45,6 @@ android {
     versionName "1.0"
   }
 }
-
-
 
 dependencies {
   // Android dependencies

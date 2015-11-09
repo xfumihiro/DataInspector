@@ -50,7 +50,7 @@ android.libraryVariants.all { variant ->
 }
 
 dependencies {
-  compile 'com.github.xfumihiro.data-inspector:data-inspector-runtime:0.1.0'
+  compile 'com.github.xfumihiro.data-inspector:data-inspector-runtime:0.1.1-SNAPSHOT'
 
   // Android dependencies
   compile rootProject.ext.appcompatV72310
