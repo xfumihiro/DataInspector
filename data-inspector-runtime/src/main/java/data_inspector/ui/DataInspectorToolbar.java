@@ -44,7 +44,7 @@ import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
     super(context);
     DataInspector.runtimeComponentMap.get(context).inject(this);
     this.context = context;
-    inflate(context, R.layout.toolbar, this);
+    inflate(context, R.layout.data_inspector_toolbar, this);
 
     Resources resources = this.context.getResources();
     toolbarWidth = resources.getDimensionPixelSize(R.dimen.toolbar_header_width)

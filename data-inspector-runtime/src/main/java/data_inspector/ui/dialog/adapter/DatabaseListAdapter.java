@@ -49,7 +49,8 @@ public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapte
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = layoutInflater.inflate(R.layout.database_editor_listitem, parent, false);
+    View view =
+        layoutInflater.inflate(R.layout.data_inspector_database_editor_listitem, parent, false);
     return new ViewHolder(view);
   }
 

@@ -19,7 +19,7 @@ public class SettingsMenu extends BaseMenu {
     super(context);
     DataInspector.runtimeComponentMap.get(context).inject(this);
 
-    inflate(context, R.layout.settings_menu, this);
+    inflate(context, R.layout.data_inspector_settings_menu, this);
 
     Switch logPreferenceEventsSwitch = (Switch) findViewById(R.id.log_preference_events);
     logPreferenceEventsSwitch.setChecked(logPreferenceEvents.get());

@@ -39,7 +39,7 @@ public class DatabaseEditorDialog extends BaseDialog {
 
     setTitle("Edit Database");
 
-    setView(View.inflate(context, R.layout.database_editor_dialog, null));
+    setView(View.inflate(context, R.layout.data_inspector_database_editor_dialog, null));
 
     setButton(BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
       @Override public void onClick(DialogInterface dialog, int which) {
@@ -76,7 +76,7 @@ public class DatabaseEditorDialog extends BaseDialog {
       String[] databases = databaseArray.toArray(new String[databaseArray.size()]);
       for (int i = 0; i < databases.length; i++) databases[i] = databases[i].split("\\.")[0];
       spinnerDatabaseAdapter =
-          new ArrayAdapter<>(context, R.layout.database_spinner_item, databases);
+          new ArrayAdapter<>(context, R.layout.data_inspector_database_spinner_item, databases);
       spinnerDatabaseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
       spinnerDatabase.setAdapter(spinnerDatabaseAdapter);
 
@@ -110,7 +110,8 @@ public class DatabaseEditorDialog extends BaseDialog {
         }
       }).subscribe(new Action1<String[]>() {
         @Override public void call(String[] tables) {
-          spinnerTableAdapter = new ArrayAdapter<>(context, R.layout.database_spinner_item, tables);
+          spinnerTableAdapter =
+              new ArrayAdapter<>(context, R.layout.data_inspector_database_spinner_item, tables);
           spinnerTableAdapter.setDropDownViewResource(
               android.R.layout.simple_spinner_dropdown_item);
           spinnerTable.setAdapter(spinnerTableAdapter);
@@ -138,7 +139,7 @@ public class DatabaseEditorDialog extends BaseDialog {
       }).subscribe(new Action1<String[]>() {
         @Override public void call(String[] columns) {
           spinnerColumnAdapter =
-              new ArrayAdapter<>(context, R.layout.database_spinner_item, columns);
+              new ArrayAdapter<>(context, R.layout.data_inspector_database_spinner_item, columns);
           spinnerColumnAdapter.setDropDownViewResource(
               android.R.layout.simple_spinner_dropdown_item);
           spinnerColumn.setAdapter(spinnerColumnAdapter);
@@ -156,16 +157,19 @@ public class DatabaseEditorDialog extends BaseDialog {
       }).subscribe(listAdapter);
     } else {
       spinnerDatabaseAdapter =
-          new ArrayAdapter<>(context, R.layout.database_spinner_item, new String[] { "--" });
+          new ArrayAdapter<>(context, R.layout.data_inspector_database_spinner_item,
+              new String[] { "--" });
       spinnerDatabase.setAdapter(spinnerDatabaseAdapter);
 
       spinnerTableAdapter =
-          new ArrayAdapter<>(context, R.layout.database_spinner_item, new String[] { "--" });
+          new ArrayAdapter<>(context, R.layout.data_inspector_database_spinner_item,
+              new String[] { "--" });
       spinnerTableAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
       spinnerTable.setAdapter(spinnerTableAdapter);
 
       spinnerColumnAdapter =
-          new ArrayAdapter<>(context, R.layout.database_spinner_item, new String[] { "--" });
+          new ArrayAdapter<>(context, R.layout.data_inspector_database_spinner_item,
+              new String[] { "--" });
       spinnerColumnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
       spinnerColumn.setAdapter(spinnerColumnAdapter);
     }

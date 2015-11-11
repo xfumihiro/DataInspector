@@ -28,7 +28,7 @@ public class StorageUsageDialog extends BaseDialog {
 
     setTitle("Storage Usage");
 
-    setView(View.inflate(context, R.layout.storage_usage_dialog, null));
+    setView(View.inflate(context, R.layout.data_inspector_storage_usage_dialog, null));
 
     setButton(BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
       @Override public void onClick(DialogInterface dialog, int which) {

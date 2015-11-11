@@ -29,7 +29,8 @@ public class StorageListAdapter extends RecyclerView.Adapter<StorageListAdapter.
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = layoutInflater.inflate(R.layout.storage_usage_listitem, parent, false);
+    View view =
+        layoutInflater.inflate(R.layout.data_inspector_storage_usage_listitem, parent, false);
     return new ViewHolder(view);
   }
 

@@ -13,7 +13,7 @@ public class StorageMenu extends BaseMenu {
     super(context);
     DataInspector.runtimeComponentMap.get(context).inject(this);
 
-    inflate(context, R.layout.storage_menu, this);
+    inflate(context, R.layout.data_inspector_storage_menu, this);
 
     View storageUsage = findViewById(R.id.storage_usage);
     storageUsage.setOnClickListener(new OnClickListener() {

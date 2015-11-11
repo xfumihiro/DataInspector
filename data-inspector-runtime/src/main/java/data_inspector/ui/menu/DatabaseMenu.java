@@ -13,7 +13,7 @@ public class DatabaseMenu extends BaseMenu {
     super(context);
     DataInspector.runtimeComponentMap.get(context).inject(this);
 
-    inflate(context, R.layout.database_menu, this);
+    inflate(context, R.layout.data_inspector_database_menu, this);
 
     View openPreferenceEditor = findViewById(R.id.open_database_editor);
     openPreferenceEditor.setOnClickListener(new OnClickListener() {
