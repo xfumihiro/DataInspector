@@ -58,49 +58,50 @@ public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapte
     holder.rowId.setText(Integer.toString(position));
     holder.data.clearFocus();
 
-    Cursor cursor = database.query(tableName, new String[] { columnName }, "_id = ?",
-        new String[] { Integer.toString(position + 1) }, null, null, null);
-    if (cursor.moveToNext()) {
-      int type = cursor.getType(cursor.getColumnIndex(columnName));
-      if (type == Cursor.FIELD_TYPE_BLOB) {
-        holder.data.setText("BLOB");
-        holder.data.setFocusable(false);
-        holder.data.setFocusableInTouchMode(false);
-        holder.data.setClickable(false);
-      } else if (type == Cursor.FIELD_TYPE_NULL) {
-        holder.data.setText("NULL");
-        holder.data.setFocusable(false);
-        holder.data.setFocusableInTouchMode(false);
-        holder.data.setClickable(false);
-      } else {
-        holder.data.setText(cursor.getString(0));
-        holder.data.setFocusable(true);
-        holder.data.setFocusableInTouchMode(true);
-        holder.data.setClickable(true);
-        holder.data.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-          @Override public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            boolean handled = false;
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-              handled = true;
-              v.clearFocus();
-              ContentValues contentValues = new ContentValues();
-              contentValues.put(columnName, v.getEditableText().toString());
-              database.update(tableName, contentValues, "_id = ?",
-                  new String[] { Integer.toString(position + 1) });
-            }
-            return handled;
-          }
-        });
-        if (type != Cursor.FIELD_TYPE_STRING) {
-          holder.data.setInputType(
-              InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+    if (tableName != null) {
+      Cursor cursor = database.query(tableName, new String[] { columnName }, "_id = ?",
+          new String[] { Integer.toString(position + 1) }, null, null, null);
+      if (cursor.moveToNext()) {
+        int type = cursor.getType(cursor.getColumnIndex(columnName));
+        if (type == Cursor.FIELD_TYPE_BLOB) {
+          holder.data.setText("BLOB");
+          holder.data.setFocusable(false);
+          holder.data.setFocusableInTouchMode(false);
+          holder.data.setClickable(false);
+        } else if (type == Cursor.FIELD_TYPE_NULL) {
+          holder.data.setText("NULL");
+          holder.data.setFocusable(false);
+          holder.data.setFocusableInTouchMode(false);
+          holder.data.setClickable(false);
         } else {
-          holder.data.setInputType(InputType.TYPE_CLASS_TEXT);
+          holder.data.setText(cursor.getString(0));
+          holder.data.setFocusable(true);
+          holder.data.setFocusableInTouchMode(true);
+          holder.data.setClickable(true);
+          holder.data.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+              boolean handled = false;
+              if (actionId == EditorInfo.IME_ACTION_DONE) {
+                handled = true;
+                v.clearFocus();
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(columnName, v.getEditableText().toString());
+                database.update(tableName, contentValues, "_id = ?",
+                    new String[] { Integer.toString(position + 1) });
+              }
+              return handled;
+            }
+          });
+          if (type != Cursor.FIELD_TYPE_STRING) {
+            holder.data.setInputType(
+                InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+          } else {
+            holder.data.setInputType(InputType.TYPE_CLASS_TEXT);
+          }
         }
       }
+      cursor.close();
     }
-
-    cursor.close();
   }
 
   @Override public long getItemId(int position) {
