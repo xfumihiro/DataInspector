@@ -94,6 +94,7 @@ public class DatabaseEditorDialog extends BaseDialog {
           database = SQLiteDatabase.openDatabase(
               "/data/data/" + context.getPackageName() + "/databases/" + databaseName + ".db", null,
               SQLiteDatabase.OPEN_READWRITE);
+          listAdapter.setTableName(null);
           listAdapter.setDatabase(database);
           Cursor cursor = database.rawQuery(
               "SELECT name FROM sqlite_master WHERE type='table' and name is not 'android_metadata'",
