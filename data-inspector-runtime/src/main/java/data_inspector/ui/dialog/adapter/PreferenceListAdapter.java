@@ -43,7 +43,8 @@ public class PreferenceListAdapter extends RecyclerView.Adapter<PreferenceListAd
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = layoutInflater.inflate(R.layout.preference_editor_listitem, parent, false);
+    View view =
+        layoutInflater.inflate(R.layout.data_inspector_preference_editor_listitem, parent, false);
     return new ViewHolder(view);
   }
 

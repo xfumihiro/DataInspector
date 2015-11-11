@@ -19,7 +19,7 @@
         style="@style/MenuSwitch"
         />
   </LinearLayout>
-  <include layout="@layout/menu_separator"/>
+  <include layout="@layout/data_inspector_menu_separator"/>
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="@dimen/menu_item_height"

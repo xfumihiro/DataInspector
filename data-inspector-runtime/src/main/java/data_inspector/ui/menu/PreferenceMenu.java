@@ -14,7 +14,7 @@ public class PreferenceMenu extends BaseMenu {
     super(context);
     DataInspector.runtimeComponentMap.get(context).inject(this);
 
-    inflate(context, R.layout.preference_menu, this);
+    inflate(context, R.layout.data_inspector_preference_menu, this);
 
     View openPreferenceEditor = findViewById(R.id.open_preference_editor);
     openPreferenceEditor.setOnClickListener(new OnClickListener() {

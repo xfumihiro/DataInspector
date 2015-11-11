@@ -29,7 +29,7 @@ public class PreferenceEditorDialog extends BaseDialog {
     this.context = context;
     setTitle("Edit Preference");
 
-    setView(View.inflate(context, R.layout.preference_editor_dialog, null));
+    setView(View.inflate(context, R.layout.data_inspector_preference_editor_dialog, null));
 
     setButton(BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
       @Override public void onClick(DialogInterface dialog, int which) {
