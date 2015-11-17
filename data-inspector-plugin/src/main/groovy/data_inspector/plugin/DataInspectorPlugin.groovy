@@ -19,7 +19,7 @@ class DataInspectorPlugin implements Plugin<Project> {
     }
 
     project.dependencies {
-      debugCompile 'com.github.xfumihiro.data-inspector:data-inspector-runtime:0.1.1'
+      debugCompile 'com.github.xfumihiro.data-inspector:data-inspector-runtime:0.1.2-SNAPSHOT'
 
       // Android dependencies
       debugCompile 'com.android.support:appcompat-v7:21.0.3'
@@ -92,11 +92,11 @@ class DataInspectorPlugin implements Plugin<Project> {
         if (project.android.compileSdkVersion == 'android-23') {
           project.dependencies
               .add('debugCompile', project.dependencies.create(
-              'com.github.xfumihiro.data-inspector:data-inspector-aspect-v23:0.1.1'))
+              'com.github.xfumihiro.data-inspector:data-inspector-aspect-v23:0.1.2-SNAPSHOT'))
         } else {
           project.dependencies
               .add('debugCompile', project.dependencies.create(
-              'com.github.xfumihiro.data-inspector:data-inspector-aspect:0.1.1'))
+              'com.github.xfumihiro.data-inspector:data-inspector-aspect:0.1.2-SNAPSHOT'))
         }
       }
 
