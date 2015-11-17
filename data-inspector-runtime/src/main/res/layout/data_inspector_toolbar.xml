@@ -9,41 +9,41 @@
       >
     <ImageView
         android:id="@+id/header"
-        android:layout_width="@dimen/toolbar_header_width"
+        android:layout_width="@dimen/data_inspector_toolbar_header_width"
         android:layout_height="match_parent"
         android:background="@drawable/data_inspector_toolbar_header"
         />
     <ImageButton
         android:id="@+id/toggle_menu"
-        android:layout_width="@dimen/toolbar_icon_width"
+        android:layout_width="@dimen/data_inspector_toolbar_icon_width"
         android:layout_height="match_parent"
         android:src="@drawable/ic_chevron_left_white_24dp"
         android:background="@color/toggle_background"
         />
     <ImageButton
         android:id="@+id/preference_menu"
-        android:layout_width="@dimen/toolbar_icon_width"
+        android:layout_width="@dimen/data_inspector_toolbar_icon_width"
         android:layout_height="match_parent"
         android:src="@drawable/ic_tune_white_24dp"
         android:background="@color/preference_background"
         />
     <ImageButton
         android:id="@+id/database_menu"
-        android:layout_width="@dimen/toolbar_icon_width"
+        android:layout_width="@dimen/data_inspector_toolbar_icon_width"
         android:layout_height="match_parent"
         android:src="@drawable/ic_storage_white_24dp"
         android:background="@color/database_background"
         />
     <ImageButton
         android:id="@+id/storage_menu"
-        android:layout_width="@dimen/toolbar_icon_width"
+        android:layout_width="@dimen/data_inspector_toolbar_icon_width"
         android:layout_height="match_parent"
         android:src="@drawable/ic_sd_card_white_24dp"
         android:background="@color/storage_background"
         />
     <ImageButton
         android:id="@+id/settings_menu"
-        android:layout_width="@dimen/toolbar_icon_width"
+        android:layout_width="@dimen/data_inspector_toolbar_icon_width"
         android:layout_height="match_parent"
         android:src="@drawable/ic_settings_white_24dp"
         android:background="@color/settings_background"

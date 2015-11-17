@@ -9,11 +9,11 @@
     <LinearLayout
         android:id="@+id/open_database_editor"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/menu_item_height"
+        android:layout_height="@dimen/data_inspector_menu_item_height"
         android:orientation="horizontal"
         >
       <TextView
-          android:text="@string/menu_database_edit_database"
+          android:text="@string/data_inspector_menu_database_edit_database"
           style="@style/MenuTextView"
           />
     </LinearLayout>

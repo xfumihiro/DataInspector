@@ -47,18 +47,20 @@ import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
     inflate(context, R.layout.data_inspector_toolbar, this);
 
     Resources resources = this.context.getResources();
-    toolbarWidth = resources.getDimensionPixelSize(R.dimen.toolbar_header_width)
-        + resources.getDimensionPixelSize(R.dimen.toolbar_icon_width) * TOOLBAR_MENU_ITEMS;
-    toolbarClosedWidth = resources.getDimensionPixelSize(R.dimen.toolbar_closed_width);
+    toolbarWidth = resources.getDimensionPixelSize(R.dimen.data_inspector_toolbar_header_width)
+        + resources.getDimensionPixelSize(R.dimen.data_inspector_toolbar_icon_width)
+        * TOOLBAR_MENU_ITEMS;
+    toolbarClosedWidth =
+        resources.getDimensionPixelSize(R.dimen.data_inspector_toolbar_closed_width);
   }
 
   public static WindowManager.LayoutParams createLayoutParams(Context context) {
     Resources res = context.getResources();
-    int width = res.getDimensionPixelSize(R.dimen.toolbar_header_width)
-        + res.getDimensionPixelSize(R.dimen.toolbar_icon_width) * TOOLBAR_MENU_ITEMS;
-    int height = res.getDimensionPixelSize(R.dimen.toolbar_height);
+    int width = res.getDimensionPixelSize(R.dimen.data_inspector_toolbar_header_width)
+        + res.getDimensionPixelSize(R.dimen.data_inspector_toolbar_icon_width) * TOOLBAR_MENU_ITEMS;
+    int height = res.getDimensionPixelSize(R.dimen.data_inspector_toolbar_height);
     if (Build.VERSION.SDK_INT == 23) { // MARSHMALLOW
-      height = res.getDimensionPixelSize(R.dimen.toolbar_height_m);
+      height = res.getDimensionPixelSize(R.dimen.data_inspector_toolbar_height_m);
     }
 
     final WindowManager.LayoutParams params =
