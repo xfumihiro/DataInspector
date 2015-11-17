@@ -32,7 +32,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.github.xfumihiro.data-inspector:data-inspector-plugin:0.1.0'
+    classpath 'com.github.xfumihiro.data-inspector:data-inspector-plugin:0.1.1'
   }
 }
 
