@@ -9,11 +9,11 @@
     <LinearLayout
         android:id="@+id/storage_usage"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/menu_item_height"
+        android:layout_height="@dimen/data_inspector_menu_item_height"
         android:orientation="horizontal"
         >
       <TextView
-          android:text="@string/menu_storage_storage_usage"
+          android:text="@string/data_inspector_menu_storage_storage_usage"
           style="@style/MenuTextView"
           />
     </LinearLayout>
